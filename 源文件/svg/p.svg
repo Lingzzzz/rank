@@ -1,7 +1,0 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" >
-    <g fill="none" fill-rule="evenodd" stroke="currentColor" stroke-width="1">
-        <path d="M80,256l0,-128c0,-26.492 21.508,-48 48,-48c26.492,0 48,21.508 48,48c0,26.492 -21.508,48 -48,48l-48,0" style="fill: none; stroke: rgb(255, 111, 1); stroke-width: 32px; stroke-dashoffset: 0px;" stroke-dasharray="402.2035827636719"></path>
-        <path d="M48,256l0,-128c0,-44.153 35.847,-80 80,-80c44.153,0 80,35.847 80,80c0,44.153 -35.847,80 -80,80l-32,0" style="fill: none; stroke: rgb(255, 242, 0); stroke-width: 32px; stroke-dashoffset: 0px;" stroke-dasharray="537.005126953125"></path>
-        <path d="M16,256l0,-128c0,-61.814 50.186,-112 112,-112c61.814,0 112,50.186 112,112c0,61.814 -50.186,112 -112,112l-32,0" style="fill: none; stroke: rgb(0, 174, 240); stroke-width: 32px; stroke-dashoffset: 0px;" stroke-dasharray="687.80712890625"></path>
-    </g>
-</svg>
