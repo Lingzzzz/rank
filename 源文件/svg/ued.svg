@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 22.0.1, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<svg version="1.1" id="图层_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="0 0 240 80" style="enable-background:new 0 0 240 80;" xml:space="preserve">
+<style type="text/css">
+	.st0{fill:#070002;}
+	.st1{fill:#FF0000;}
+	.st2{opacity:0.5;}
+</style>
+<g id="D_1_">
+	<g id="点">
+		<g>
+			<path class="st0" d="M164,7h3V4h-3V7z M218,7h3V4h-3V7z M227,10v3h3v-3H227z M218,76h3v-3h-3V76z M227,70h3v-3h-3V70z M164,76h3
+				v-3h-3V76z"/>
+		</g>
+	</g>
+	<g id="竖">
+		<g>
+			<path class="st1" d="M170,7h48V4h-48V7z M167,76h48v-3h-48V76z M164,10v63h3V10H164z M227,16v51h3V16H227z"/>
+		</g>
+	</g>
+</g>
+<g id="E_1_">
+	<g id="竖_1_">
+		<g>
+			<path class="st1" d="M84,73h3V10h-3V73z M90,4v3h63V4H90z M90,76h63v-3H90V76z M124,39H90v3h34V39z"/>
+		</g>
+	</g>
+	<g id="点_1_">
+		<g>
+			<path class="st0" d="M153,76h3v-3h-3V76z M153,4v3h3V4H153z M84,7h3V4h-3V7z M84,76h3v-3h-3V76z M124,42h3v-3h-3V42z"/>
+		</g>
+	</g>
+</g>
+<g id="U_1_" class="st2">
+	<g id="点_2_">
+		<g>
+			<path class="st0" d="M4,76h3v-3H4V76z M4,7h3V4H4V7z M73,4v3h3V4H73z M73,76h3v-3h-3V76z"/>
+		</g>
+	</g>
+	<g id="竖_2_">
+		<g>
+			<path class="st1" d="M4,73h3V10H4V73z M10,76h63v-3H10V76z M73,10v63h3V10H73z"/>
+		</g>
+	</g>
+</g>
+</svg>
