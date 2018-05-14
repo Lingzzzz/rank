@@ -5,7 +5,6 @@ var sunRise_start = date.sunRise_start;
 var sunSet_start = date.sunSet_start;
 var sunRise_end = date.sunRise_end;
 var sunSet_end = date.sunSet_end;
-
 var time = nowTime();
 var now = nowTime().now;
 
@@ -107,30 +106,6 @@ function initSky(){
         $('.sky-sunrise').show();//显示日出天空
         var audio = new Audio("sunrise.mp3");
             audio.play();
-    }else if ((now > sunRise_end) && (now < sunSet_start)) {
-            console.log('现在是白天～');
-            $('.sky-day').show();
-            $('.cloud-day').fadeIn(during / 50);
-            var audio = new Audio("day.mp3");
-                audio.play();
-    }else if ((now >= sunSet_start) && (now <= sunSet_end)) {
-            console.log('要日落了～');
-            $('.sky-day').show();
-            $('.cloud-day').fadeIn(during / 50);//显示白天的天空和云
-            initStars();
-            var audio = new Audio("sunset.mp3");
-                audio.play();
-    }else{
-            console.log('漫长黑夜～');
-            $('.sky-night').show();
-            $('.cloud-night').fadeIn(during / 50);
-            initStars();
-            var audio = new Audio("night.mp3");
-                audio.play();
-    }
-}
-function skyChange(){
-    if ((now >= sunRise_start) && (now <= sunRise_end)) {
         $('.cloud-night').fadeOut(during / 2);//先快速渐隐夜晚的云
         $('.sky-night').fadeOut(during);//然后渐隐夜晚的天空
         //夜晚的天空渐隐后执行
@@ -151,24 +126,43 @@ function skyChange(){
             function(){
                 $('.cloud-day').fadeIn(during / 40);//显示白天的云
             }, during * 2);
-    }
-    if ((now >= sunSet_start) && (now <= sunSet_end)) {
-        $('.sky-day').fadeOut(during);
-        $('.cloud-day').fadeOut(during * 2);
-        $('.sky-sunset').fadeIn(during);//日落的天空淡入
-        $('.cloud-sunset').fadeIn(during);
-        setTimeout(
-            function(){
-                $('.sky-sunset').fadeOut(during);
-                $('.cloud-sunset').fadeOut(during / 2);
-                $('.sky-night').fadeIn(during);
-                
-                $('.cloud-night').fadeIn(during * 2);
-                var audio = new Audio("night.mp3");
-                    audio.play();
-            }, during * 2); 
+    }else if ((now > sunRise_end) && (now < sunSet_start)) {
+            console.log('现在是白天～');
+            $('.sky-day').show();
+            $('.cloud-day').fadeIn(during / 50);
+            var audio = new Audio("day.mp3");
+                audio.play();
+    }else if ((now >= sunSet_start) && (now <= sunSet_end)) {
+            console.log('要日落了～');
+            $('.sky-day').show();
+            $('.cloud-day').fadeIn(during / 50);//显示白天的天空和云
+            initStars();
+            var audio = new Audio("sunset.mp3");
+                audio.play();
+            $('.sky-day').fadeOut(during);
+            $('.cloud-day').fadeOut(during * 2);
+            $('.sky-sunset').fadeIn(during);//日落的天空淡入
+            $('.cloud-sunset').fadeIn(during);
+            setTimeout(
+                function(){
+                    $('.sky-sunset').fadeOut(during);
+                    $('.cloud-sunset').fadeOut(during / 2);
+                    $('.sky-night').fadeIn(during);
+                    
+                    $('.cloud-night').fadeIn(during * 2);
+                    var audio = new Audio("night.mp3");
+                        audio.play();
+                }, during * 2); 
+    }else{
+            console.log('漫长黑夜～');
+            $('.sky-night').show();
+            $('.cloud-night').fadeIn(during / 50);
+            initStars();
+            var audio = new Audio("night.mp3");
+                audio.play();
     }
 }
+
 
 function getRandomNum(min, max) {
   min = Math.ceil(min);

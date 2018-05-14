@@ -36,9 +36,6 @@ li {
 .sky-sunset{
   background: linear-gradient(to bottom, #f23c8c 10%,#fc75a7 30%, #ffc0c0);
 }
-/* .sky-sunset{
-  background: linear-gradient(to bottom, #301020 6%, #f23c8c 30%,#ff609b 40%, #ffb4b4);
-} */
 .sky-night{
   background: linear-gradient(to bottom, #000018 20%, #040c30 30%,#2c7dff 50%,#64c8ff);
 }
@@ -262,8 +259,6 @@ li {
     -webkit-transform: translate(100vw, 0)rotate(15deg);
     transform: translate(100vw, 0)rotate(15deg);}
 }
-
-
 .rank{
   position: absolute;
   left: 0;
@@ -271,6 +266,48 @@ li {
   bottom: 0;
   width: 540px;
   margin:0 auto;
+}
+.rank .ued-paizi{
+  transform-origin: 50% 80%;
+  -webkit-transform-origin:50% 80%;
+  animation:uedpaizi 2s infinite linear;
+  -webkit-animation:uedpaizi 2s infinite linear;
+}
+@keyframes uedpaizi {
+  0% {
+    -webkit-transform: rotate(5deg);
+    transform: rotate(5deg);}
+  70% {
+    -webkit-transform: rotate(-5deg);
+    transform: rotate(-5deg);}
+  100% {
+    -webkit-transform: rotate(5deg);
+    transform: rotate(5deg);}
+}
+.rank .xiaofeifei{
+  position: absolute;
+  bottom: 54px;
+  right: 196px;
+  width: 32px;
 
 }
-
+.rank .xiaofeifei .zuoshou{
+  transform-origin: 50% 66%;
+  -webkit-transform-origin:50% 66%;
+  animation:xiaofeifeishou 2s infinite linear;
+  -webkit-animation:xiaofeifeishou 2s infinite linear;
+}
+@keyframes xiaofeifeishou {
+  0% {
+    -webkit-transform: rotate(30deg);
+    transform: rotate(30deg);}
+  10% {
+    -webkit-transform: rotate(-45deg);
+    transform: rotate(-45deg);}
+  70% {
+  -webkit-transform: rotate(30deg);
+  transform: rotate(30deg);}
+  100% {
+  -webkit-transform: rotate(30deg);
+  transform: rotate(30deg);}
+}
