@@ -284,13 +284,18 @@ li {
     -webkit-transform: rotate(5deg);
     transform: rotate(5deg);}
 }
+.rank .renwu{
+  position: absolute;
+  width: 32px;
+}
+
 .rank .xiaofeifei{
   position: absolute;
   bottom: 54px;
   right: 196px;
   width: 32px;
-
 }
+
 .rank .xiaofeifei .zuoshou{
   transform-origin: 50% 66%;
   -webkit-transform-origin:50% 66%;
@@ -310,4 +315,23 @@ li {
   100% {
   -webkit-transform: rotate(30deg);
   transform: rotate(30deg);}
+}
+.rank .miaomiao{
+  top: 212px;
+  right: 102px;
+}
+.rank .miaomiao .toubu{
+  animation:miaomiaotoubu 1s infinite linear;
+  -webkit-animation:miaomiaotoubu 1s infinite linear;
+}
+@keyframes miaomiaotoubu {
+  0% {
+    -webkit-transform: translate(0, 0);
+    transform: translate(0, 0);}
+  50% {
+    -webkit-transform: translate(-1px, 0);
+    transform: translate(-1px, 0);}
+  100% {
+  -webkit-transform: translate(0, 0);
+  transform: translate(0, 0);}
 }
