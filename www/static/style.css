@@ -242,22 +242,7 @@ li {
 }
 .star-ued{
   position: absolute;
-  top: 160px;
-  left: 0px;
   width: 240px;
-  animation:starued 3600s 1 linear;
-  -webkit-animation:starued 3600s 1 linear;
-}
-@keyframes starued {
-  0% {
-    -webkit-transform: translate(0, 0)rotate(-15deg);
-    transform: translate(0, 0)rotate(-15deg);}
-  50% {
-    -webkit-transform: translate(45vw,-140px)rotate(0deg);
-    transform: translate(45vw,-140px)rotate(0deg);}
-  100% {
-    -webkit-transform: translate(100vw, 0)rotate(15deg);
-    transform: translate(100vw, 0)rotate(15deg);}
 }
 .rank{
   position: absolute;
@@ -359,6 +344,7 @@ li {
   -webkit-transform-origin:50% 66%;
   animation:xiaofeifeishou 2s infinite linear;
   -webkit-animation:xiaofeifeishou 2s infinite linear;
+  animation-fill-mode:forwards;
 }
 @keyframes xiaofeifeishou {
   0% {
@@ -383,8 +369,8 @@ li {
   right: 102px;
 }
 .rank .miaomiao .toubu{
-  animation:miaomiaotoubu 1s infinite linear;
-  -webkit-animation:miaomiaotoubu 1s infinite linear;
+  animation:miaomiaotoubu 500ms steps(1) infinite 0s;
+  -webkit-animation:miaomiaotoubu 500ms steps(1) infinite 0s;
 }
 @keyframes miaomiaotoubu {
   0% {
@@ -437,4 +423,179 @@ li {
     -webkit-transform: rotate(0deg);
     transform: rotate(0deg);}
 }
-
+.rank .fenganquan{
+  top: 6px;
+  right: 180px;
+}
+.rank .fenganquan .shou{
+  transform-origin: 16% 49%;
+  -webkit-transform-origin:16% 49%;
+  animation:fenganquanshou 3s infinite linear;
+  -webkit-animation:fenganquanshou 3s infinite linear;
+}
+@keyframes fenganquanshou {
+  0% {
+    -webkit-transform: rotate(-10deg);
+    transform: rotate(-10deg);}
+  12% {
+    -webkit-transform: rotate(15deg);
+    transform: rotate(15deg);}
+  24% {
+    -webkit-transform: rotate(-10deg);
+    transform: rotate(-10deg);}
+  36% {
+    -webkit-transform: rotate(30deg);
+    transform: rotate(30deg);}
+  48% {
+    -webkit-transform: rotate(-10deg);
+    transform: rotate(-10deg);}
+  64% {
+    -webkit-transform: rotate(30deg);
+    transform: rotate(30deg);}
+  100% {
+    -webkit-transform: rotate(30deg);
+    transform: rotate(30deg);}
+}
+.rank .fenganquan .tou{
+  animation:fenganquantou 3s infinite linear;
+  -webkit-animation:fenganquantou 3s infinite linear;
+}
+@keyframes fenganquantou {
+  0% {
+    -webkit-transform:translate(0px, 0px) ;
+    transform: translate(0px, 0px);}
+  64% {
+    -webkit-transform:translate(0px, 0px) ;
+    transform: translate(0px, 0px);}
+  67% {
+    -webkit-transform:translate(0px, -3px) ;
+    transform: translate(0px, -3px);}
+  70% {
+    -webkit-transform:translate(-1px, -3px) ;
+    transform: translate(-1px, -3px);}
+  73% {
+    -webkit-transform:translate(1px, -3px) ;
+    transform: translate(1px, -3px);}
+  76% {
+    -webkit-transform:translate(-1px, -3px) ;
+    transform: translate(-1px, -3px);}
+  79% {
+    -webkit-transform:translate(1px, -3px) ;
+    transform: translate(1px, -3px);}
+  82% {
+    -webkit-transform:translate(-1px, -3px) ;
+    transform: translate(-1px, -3px);}
+  85% {
+    -webkit-transform:translate(1px, -3px) ;
+    transform: translate(1px, -3px);}
+  88% {
+    -webkit-transform:translate(-1px, -3px) ;
+    transform: translate(-1px, -3px);}
+  91% {
+    -webkit-transform:translate(1px, -3px) ;
+    transform: translate(1px, -3px);}
+  94% {
+    -webkit-transform:translate(0px, -3px) ;
+    transform: translate(0px, -3px);}
+  97% {
+    -webkit-transform:translate(0px, 0px) ;
+    transform: translate(0px, 0px);}
+  100% {
+    -webkit-transform:translate(0px, 0px) ;
+    transform: translate(0px, 0px);}
+}
+.rank .caoshufang{
+  bottom: 198px;
+  left: 220px;
+}
+.rank .caoshufang .lian{
+  animation:caoshufanglian 4s steps(1) infinite 0s;
+  -webkit-animation:caoshufanglian 4s steps(1) infinite 0s;
+}
+@keyframes caoshufanglian {
+  0% {
+    -webkit-transform: translate(2px, 0px);
+    transform: translate(2px, 0px);}
+  10% {
+    -webkit-transform: translate(2px, 0px);
+    transform: translate(2px, 0px);}
+  20% {
+    -webkit-transform: translate(0px, 0px);
+    transform: translate(0px, 0px);}
+  100% {
+    -webkit-transform: translate(0px, 0px);
+    transform: translate(0px, 0px);}
+}
+.rank .caoshufang .shenti{
+  animation:caoshufangshenti 4s infinite linear;
+  -webkit-animation:caoshufangshenti 4s infinite linear;
+}
+@keyframes caoshufangshenti {
+  0% {
+    -webkit-transform: translate(0px, 0px);
+    transform: translate(0px, 0px);}
+  30% {
+    -webkit-transform: translate(0px, 0px);
+    transform: translate(0px, 0px);}
+  40% {
+    -webkit-transform: translate(0px, 4px);
+    transform: translate(0px, 4px);}
+  50% {
+    -webkit-transform: translate(0px, 0px);
+    transform: translate(0px, 0px);}
+  100% {
+    -webkit-transform: translate(0px, 0px);
+    transform: translate(0px, 0px);}
+}
+.rank .caoshufang .shou{
+  animation:caoshufangshou 4s infinite linear;
+  -webkit-animation:caoshufangshou 4s infinite linear;
+}
+@keyframes caoshufangshou {
+  0% {
+    -webkit-transform: translate(0px, 0px);
+    transform: translate(0px, 0px);}
+  40% {
+    -webkit-transform: translate(0px, 0px);
+    transform: translate(0px, 0px);}
+  50% {
+    -webkit-transform: translate(0px, -8px);
+    transform: translate(0px, -8px);}
+  60% {
+    -webkit-transform: translate(0px, -8px);
+    transform: translate(0px, -8px);}
+  70% {
+    -webkit-transform: translate(0px, 0px);
+    transform: translate(0px, 0px);}
+  100% {
+    -webkit-transform: translate(0px, 0px);
+    transform: translate(0px, 0px);}
+}
+.rank .jinru{
+  bottom: 198px;
+  left: 184px;
+}
+.rank .jinru .shou{
+  animation:jinrushou 4s infinite linear;
+  -webkit-animation:jinrushou 4s infinite linear;
+}
+@keyframes jinrushou {
+  0% {
+    -webkit-transform: translate(0px, 3px);
+    transform: translate(0px, 3px);}
+  10% {
+    -webkit-transform: translate(0px, -2px);
+    transform: translate(0px, -2px);}
+  100% {
+    -webkit-transform: translate(0px, 3px);
+    transform: translate(0px, 3px);}
+}
+.rank .jinru .zui{
+  animation:jinruzui 4s steps(1) infinite 0s;
+  -webkit-animation:jinruzui 4s steps(1) infinite 0s;
+}
+@keyframes jinruzui {
+  0% {opacity: 1;}
+  10% {opacity: 0;}
+  100% {opacity: 1;}
+}
