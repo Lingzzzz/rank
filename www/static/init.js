@@ -9,7 +9,11 @@ var sunRise_start = date.sunRise_start;
 
 var time = nowTime(),
     now = nowTime().now;
-    //now = '01:00';
+
+var sunriseSong = new Audio("sunrise.mp3"),
+    daySong = new Audio("day.mp3"),
+    sunsetSong = new Audio("sunset.mp3"),
+    nightSong = new Audio("night.mp3");
 
 console.log('今天的UED-Rank系统的日出时间是'+ sunRise_start+'，将持续到'+sunRise_end+'结束。');
 console.log('今天的UED-Rank系统的日落时间是'+ sunSet_start +'，将持续到'+sunSet_end+'结束。');
@@ -25,8 +29,6 @@ function getSunRiseSet(Latitude, Longitude, TimeZone) {
     var B5 = Latitude;
     var L5 = Longitude;
     var H = -1 * (curTime.getTimezoneOffset() / 60 * -1); // Local timezone
-    // Overriding TimeZone to standardize on UTC
-    // H = 0;
     var M = curTime.getMonth() + 1;
     var D = curTime.getDate();
     B5 = DR * B5;
@@ -37,44 +39,43 @@ function getSunRiseSet(Latitude, Longitude, TimeZone) {
     var SD = .3978 * Math.sin(L0 + C);
     var CD = Math.sqrt(1 - SD * SD);
     var SC = (SD * Math.sin(B5) + .0145) / (Math.cos(B5) * CD);
-    if (Math.abs(SC) <= 1) {
-        var C3 = RD * Math.atan(SC / Math.sqrt(1 - SC * SC));
-        var R1 = 6 - H - (L5 + C2 + C3) / 15;
-        var HR = parseInt(R1);
-        var MR = parseInt((R1 - HR) * 60);
+    var C3 = RD * Math.atan(SC / Math.sqrt(1 - SC * SC));
+    var R1 = 6 - H - (L5 + C2 + C3) / 15;
+    var HR = parseInt(R1);
+    var MR = parseInt((R1 - HR) * 60);
 
-        retVal.strSunRise = parseTime(HR + ":" + MR);
-        var TargetTimezoneOffset = (TimeZone * 60 * 60 * 1000) + (retVal.strSunRise.getTimezoneOffset() * 60 * 1000);
-        var transformedSunRise_start = new Date(retVal.strSunRise.getTime() + TargetTimezoneOffset);
-        var sunRise_start_minutes = transformedSunRise_start.getMinutes();
-        var sunRise_start_hours = transformedSunRise_start.getHours()+4;
-        var sunRise_start = (sunRise_start_hours < 10 ? "0" + sunRise_start_hours : sunRise_start_hours) + ":" + (sunRise_start_minutes < 10 ? "0" + sunRise_start_minutes : sunRise_start_minutes);
+    retVal.strSunRise = parseTime(HR + ":" + MR);
+    var TargetTimezoneOffset = (TimeZone * 60 * 60 * 1000) + (retVal.strSunRise.getTimezoneOffset() * 60 * 1000);
+    var transformedSunRise_start = new Date(retVal.strSunRise.getTime() + TargetTimezoneOffset);
+    var sunRise_start_minutes = transformedSunRise_start.getMinutes();
+    var sunRise_start_hours = transformedSunRise_start.getHours()+4;
+    var sunRise_start = (sunRise_start_hours < 10 ? "0" + sunRise_start_hours : sunRise_start_hours) + ":" + (sunRise_start_minutes < 10 ? "0" + sunRise_start_minutes : sunRise_start_minutes);
 
-        var transformedSunRise_end = new Date(retVal.strSunRise.getTime() + TargetTimezoneOffset + during);
-        var sunRise_end_minutes = transformedSunRise_end.getMinutes();
-        var sunRise_end_hours = transformedSunRise_end.getHours()+4;
-        var sunRise_end = (sunRise_end_hours < 10 ? "0" + sunRise_end_hours : sunRise_end_hours) + ":" + (sunRise_end_minutes < 10 ? "0" + sunRise_end_minutes : sunRise_end_minutes);
+    var transformedSunRise_end = new Date(retVal.strSunRise.getTime() + TargetTimezoneOffset + during);
+    var sunRise_end_minutes = transformedSunRise_end.getMinutes();
+    var sunRise_end_hours = transformedSunRise_end.getHours()+4;
+    var sunRise_end = (sunRise_end_hours < 10 ? "0" + sunRise_end_hours : sunRise_end_hours) + ":" + (sunRise_end_minutes < 10 ? "0" + sunRise_end_minutes : sunRise_end_minutes);
  
-        var S1 = 18 - H - (L5 + C2 - C3) / 15;
-        var HS = parseInt(S1);
-        var MS = parseInt((S1 - HS) * 60);
+    var S1 = 18 - H - (L5 + C2 - C3) / 15;
+    var HS = parseInt(S1);
+    var MS = parseInt((S1 - HS) * 60);
 
-        retVal.strSunSet = parseTime(HS + ":" + MS);
-        var transformedSunSet_start = new Date(retVal.strSunSet.getTime() + TargetTimezoneOffset);
-        var sunSet_start_minutes = transformedSunSet_start.getMinutes();
-        var sunSet_start_hours = transformedSunSet_start.getHours()-2;
-        var sunSet_start = (sunSet_start_hours + ":" + (sunSet_start_minutes < 10 ? "0" + sunSet_start_minutes : sunSet_start_minutes));
+    retVal.strSunSet = parseTime(HS + ":" + MS);
+    var transformedSunSet_start = new Date(retVal.strSunSet.getTime() + TargetTimezoneOffset);
+    var sunSet_start_minutes = transformedSunSet_start.getMinutes();
+    var sunSet_start_hours = transformedSunSet_start.getHours()-2;
+    var sunSet_start = (sunSet_start_hours + ":" + (sunSet_start_minutes < 10 ? "0" + sunSet_start_minutes : sunSet_start_minutes));
 
 
-        var transformedSunSet_end = new Date(retVal.strSunSet.getTime() + TargetTimezoneOffset + during);
-        var sunSet_end_minutes = transformedSunSet_end.getMinutes();
-        var sunSet_end_hours = transformedSunSet_end.getHours()-2;
-        var sunSet_end = (sunSet_end_hours + ":" + (sunSet_end_minutes < 10 ? "0" + sunSet_end_minutes : sunSet_end_minutes));
-        
-        retVal.strNoon = new Date((retVal.strSunRise.getTime() + retVal.strSunSet.getTime()) / 2);
-        var transformedNoon = new Date(retVal.strNoon.getTime() + TargetTimezoneOffset);
-        var noon = transformedNoon.getHours() + ":" + (transformedNoon.getMinutes() < 10 ? "0" + transformedNoon.getMinutes() : transformedNoon.getMinutes());
-    }
+    var transformedSunSet_end = new Date(retVal.strSunSet.getTime() + TargetTimezoneOffset + during);
+    var sunSet_end_minutes = transformedSunSet_end.getMinutes();
+    var sunSet_end_hours = transformedSunSet_end.getHours()-2;
+    var sunSet_end = (sunSet_end_hours + ":" + (sunSet_end_minutes < 10 ? "0" + sunSet_end_minutes : sunSet_end_minutes));
+    
+    retVal.strNoon = new Date((retVal.strSunRise.getTime() + retVal.strSunSet.getTime()) / 2);
+    var transformedNoon = new Date(retVal.strNoon.getTime() + TargetTimezoneOffset);
+    var noon = transformedNoon.getHours() + ":" + (transformedNoon.getMinutes() < 10 ? "0" + transformedNoon.getMinutes() : transformedNoon.getMinutes());
+    
     retVal.noon = noon;
     retVal.sunRise_start = sunRise_start;
     retVal.sunRise_start_hours = sunRise_start_hours;
@@ -127,79 +128,73 @@ function nowTime(){
 }
 
 function initSky(){
-    if ((now >= sunRise_start) && (now <= sunRise_end)) {
-        console.log('日出开始了～');
+    if ((now > sunRise_end) && (now <= sunSet_end)) {
+        console.log('现在是白天～');
+        $('.sky-day').show();
+        $('.cloud-day').fadeIn(6000);
+        daySong.play();
+    }else{
+        console.log('漫长黑夜～');
         $('.sky-night').show();
-        $('.cloud-night').fadeIn(during / 50);//显示夜晚的天空和云
-        initStars();//插入星星
-        $('.sky-sunrise').show();//显示日出天空
-        var audio = new Audio("sunrise.mp3");
-            audio.play();
-        $('.cloud-night').fadeOut(during / 2);//先快速渐隐夜晚的云
-        $('.sky-night').fadeOut(during);//然后渐隐夜晚的天空
-        //夜晚的天空渐隐后执行
+        $('.cloud-night').fadeIn(6000);
+        initStars();
+        setStarPosition();
+        nightSong.play(); 
+    }
+    changeSky();
+}
+function changeSky(){
+    if ((now >= sunRise_start) && (now <= sunRise_end)) {
+        console.log('日出要开始了～');
+        nightSong.pause();
+        sunriseSong.play();
+        $('.sky-sunrise').show()//显示日出天空做为底层铺垫
+        $('.cloud-night').fadeOut(during / 3);//先渐隐夜晚的云
+        $('.sky-night').fadeOut(during);//然后渐隐夜晚的天空，立即执行，跨越整个during
         setTimeout(
             function(){
-                $('.cloud-sunrise').fadeIn(during)//显示日出的云
-            }, during / 2);
-        //一段时间以后执行
+                $('.cloud-sunrise').fadeIn(during)
+            }, during / 2);//显示日出的云，during/2时候执行，跨越整个during，总体1.5个during
         setTimeout(
             function(){
                 $('.sky-sunrise').fadeOut(during);//渐隐日出的天空
-                $('.cloud-sunrise').fadeOut(during / 5);//先快速渐隐日出的云
+                $('.cloud-sunrise').fadeOut(during / 2);//先快速渐隐日出的云
                 $('.sky-day').fadeIn(during);//显示白天的天空
-                var audio = new Audio("day.mp3");
-                    audio.play();
-            }, during * 2);
+                $('.cloud-day').fadeIn(during * 1.5);
+                daySong.play();
+            }, during * 2);//显示白天，2*during时候执行，跨越整个during，总体3个during
+    }
+    if ((now >= sunSet_start) && (now <= sunSet_end)) {
+        console.log('但是要日落了～');
+        daySong.pause();
+        sunsetSong.play();
+        initStars();
+        setStarPosition();
+        $('.sky-day').fadeOut(during);
+        $('.cloud-day').fadeOut(during * 1.5);//慢点消失白天的云
+        $('.sky-sunset').fadeIn(during);//日落的天空淡入
+        $('.cloud-sunset').fadeIn(during);//日落的云一起淡入
         setTimeout(
             function(){
-                $('.cloud-day').fadeIn(during / 40);//显示白天的云
-            }, during * 2);
-    }else if ((now > sunRise_end) && (now < sunSet_start)) {
-            console.log('现在是白天～');
-            $('.sky-day').show();
-            $('.cloud-day').fadeIn(during / 50);
-            var audio = new Audio("day.mp3");
-                audio.play();
-    }else if ((now >= sunSet_start) && (now <= sunSet_end)) {
-            console.log('要日落了～');
-            $('.sky-day').show();
-            $('.cloud-day').fadeIn(during / 50);//显示白天的天空和云
-            initStars();
-            var audio = new Audio("sunset.mp3");
-                audio.play();
-            $('.sky-day').fadeOut(during);
-            $('.cloud-day').fadeOut(during * 2);
-            $('.sky-sunset').fadeIn(during);//日落的天空淡入
-            $('.cloud-sunset').fadeIn(during);
-            setTimeout(
-                function(){
-                    $('.sky-sunset').fadeOut(during);
-                    $('.cloud-sunset').fadeOut(during / 2);
-                    $('.sky-night').fadeIn(during);
-                    
-                    $('.cloud-night').fadeIn(during * 2);
-                    var audio = new Audio("night.mp3");
-                        audio.play();
-                }, during * 2); 
-    }else{
-            console.log('漫长黑夜～');
-            $('.sky-night').show();
-            $('.cloud-night').fadeIn(during / 50);
-            initStars();
-            var audio = new Audio("night.mp3");
-                audio.play();
+                $('.sky-sunset').fadeOut(during);
+                $('.cloud-sunset').fadeOut(during / 3);
+                $('.sky-night').fadeIn(during);
+                $('.cloud-night').fadeIn(during);
+                nightSong.play(); 
+            }, during * 2); 
     }
 }
+
 function getRandomNum(min, max) {
   min = Math.ceil(min);
   max = Math.floor(max);
   return Math.floor(Math.random() * (max - min + 1)) + min;
 }
+
 function initStars(){
     var width = $(window).width() * 1.5,
         height = $(window).height() - 400;
-    var num = getRandomNum(800, 1000);
+    var num = getRandomNum(600, 800);
     for(i=0;i<num;i++){
         var top_ = getRandomNum(0, height);
         var left = getRandomNum(0, width);
@@ -212,11 +207,13 @@ function setStarPosition(){
     var start_hours = date.sunRise_start_hours,
         start_minutes = date.sunRise_start_minutes,
         end_hours = date.sunSet_end_hours,
-        end_minutes = date.sunSet_end_minutes,
-        now_hours = time.hours,
+        end_minutes = date.sunSet_end_minutes;
+
+    var now_hours = time.hours,
         now_minutes = time.minutes;
-        //now_hours = 8,
-        //now_minutes = 36;
+        // now_hours = 19,
+        // now_minutes = 36;
+        console.log(now_hours, now_minutes)
     var width = $(window).width() - 240,
         height = $(window).height() - 600;
     var during_time =(24 - end_hours + start_hours) * 60 + (60 - end_minutes + start_minutes);

@@ -1,15 +1,25 @@
 @font-face {
     font-family: '04b03b';
-    src: url('04b03b.woff2') format('woff2'),url('04b03b.woff') format('woff'),url("04b03b.ttf") format("truetype");
+    src: url("04b03b.ttf") format("truetype"), url('04b03b.woff2') format('woff2'),url('04b03b.woff') format('woff');
     font-weight: normal;
     font-style: normal;
 
 }
-
 @font-face {
     font-family: 'fzxs12';
-    src: url('fzxs12.woff2') format('woff2'),url('fzxs12.woff') format('woff'),url("fzxs12.ttf") format("truetype");
+    src: url("fzxs12.ttf") format("truetype"), url('fzxs12.woff2') format('woff2'),url('fzxs12.woff') format('woff');
     font-weight: normal;
     font-style: normal;
-
+}
+@font-face {
+    font-family: 'zpix';
+    src: url("zpix.ttf") format("truetype");
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'fzjcxs';
+    src: url("fzjcxs.ttf") format("truetype");
+    font-weight: normal;
+    font-style: normal;
 }
