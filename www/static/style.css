@@ -243,6 +243,9 @@ li {
 .star-ued{
   position: absolute;
   width: 240px;
+  top: calc(100% - 600px);
+  left: 0px;
+  transform:rotate(-20deg);
 }
 .rank{
   position: absolute;
@@ -251,6 +254,44 @@ li {
   bottom: 0;
   width: 540px;
   margin:0 auto;
+}
+.name{
+  position: relative;
+  max-width: 120px;
+  max-height: 120px;
+  background-color: #ff3080;
+  color: #ffffff;
+  font-size: 36px;
+  font-family: 'fzjcxs';
+  padding: 0 6px 6px 6px;
+}
+.name .tl-cocorner{
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 4px;
+  height: 4px;
+}
+.name .tr-cocorner{
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 4px;
+  height: 4px;
+}
+.name .bl-cocorner{
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 18px;
+  height: 12px;
+}
+.name .br-cocorner{
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 4px;
+  height: 4px;
 }
 .rank .ued-paizi{
   transform-origin: 50% 80%;
