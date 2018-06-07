@@ -1,5 +1,5 @@
 var toMinute = 60 * 1000,
-    duringMinute = 20,
+    duringMinute = 4,
     during  =  duringMinute * toMinute;
 
 var date = getSunRiseSet(31.84, 117.15, 8);
@@ -14,10 +14,9 @@ var startHours = date.sunRise_start_hours,
     endHours = date.sunSet_end_hours,
     endMinutes = date.sunSet_end_minutes;
 
-var time = nowTime(),
-    now = nowTime().now;
-    nowHours = time.hours,
-    nowMinutes = time.minutes;
+var now = nowTime().now,
+    nowHours = nowTime().hours,
+    nowMinutes = nowTime().minutes;
 
 var  skyDay = $('.sky-day'),
      cloudDay = $('.cloud-day'),
@@ -34,6 +33,8 @@ var sunriseSong = new Audio("sunrise.mp3"),
     sunsetSong = new Audio("sunset.mp3"),
     nightSong = new Audio("night.mp3");
 
+var isDay, isNight;
+
 console.log('今天的UED-Rank系统的日出时间是' + sunRiseStart + '，将持续到' + sunRiseEnd + '结束。');
 console.log('今天的UED-Rank系统的日落时间是' + sunSetStart + '，将持续到' + sunSetEnd + '结束。');
 console.log('现在的时间是：' + now);
@@ -49,8 +50,9 @@ function initSky() {
         skyNight.show();
         cloudNight.fadeIn();
         initStars();
-        setStarPosition();
         nightSong.play();
+        setStarPosition();
+        setInterval(setStarPosition, 60000);
     }
     changeSky();
 }
@@ -68,50 +70,104 @@ function changeSky() {
             case (perc >= 0) && (perc < 0.25):
                 cloudNight.css({
                     'opacity':(1 - perc * 4)
-                }).animate({opacity: 0}, (duringMinute * 0.25 - passTime) * toMinute);
+                }).animate({opacity: 0}, (duringMinute * 0.25 - passTime) * toMinute,function(){
+                    cloudNight.hide();
+                    cloudSunrise.css({
+                        'display':'block',
+                        'opacity':0
+                    }).animate({opacity: 1}, duringMinute * 0.5 * toMinute,function(){
+                        cloudSunrise.hide();
+                        cloudDay.css({
+                            'display':'block',
+                            'opacity':0
+                        }).animate({opacity: 1}, duringMinute * 0.25 * toMinute)
+                    });
+                });
                 skyNight.css({
                     'opacity':(1 - perc * 2)
-                }).animate({opacity: 0}, (duringMinute * 0.5 - passTime) * toMinute);
+                }).animate({opacity: 0}, (duringMinute * 0.5 - passTime) * toMinute,function(){
+                    skyNight.hide();
+                    skySunrise.css({
+                        'display':'block',
+                        'opacity':1
+                    }).animate({opacity: 0}, duringMinute * 0.5 * toMinute);
 
+                    skyDay.css({
+                        'display':'block',
+                        'opacity':0
+                    }).animate({opacity: 1}, duringMinute * 0.5 * toMinute,function(){
+                        sunriseSong.pause();
+                        daySong.play();      
+                    });
+                });
                 break;
             case (perc >= 0.25) && (perc < 0.5):
                 cloudNight.hide();
-                skyNight.css({
-                    'opacity':(1 - perc * 2)
-                }).animate({opacity: 0}, (duringMinute * 0.5 - passTime) * toMinute);
                 cloudSunrise.css({
                     'display':'block',
                     'opacity':(perc - 0.25) * 4
-                }).animate({opacity: 1}, (duringMinute * 0.5 - passTime) * toMinute);
+                }).animate({opacity: 1}, (duringMinute * 0.5 - passTime) * toMinute,function(){
+                    cloudSunrise.hide();
+                    cloudDay.css({
+                        'display':'block',
+                        'opacity':0
+                    }).animate({opacity: 1}, duringMinute * 0.25 * toMinute)
+                });
+                skyNight.css({
+                    'opacity':(1 - perc * 2)
+                }).animate({opacity: 0}, (duringMinute * 0.5 - passTime) * toMinute,function(){
+                    skyNight.hide();
+                    skySunrise.css({
+                        'display':'block',
+                        'opacity':1
+                    }).animate({opacity: 0}, duringMinute * 0.5 * toMinute);
+                    skyDay.css({
+                        'display':'block',
+                        'opacity':0
+                    }).animate({opacity: 1}, duringMinute * 0.5 * toMinute,function(){
+                        sunriseSong.pause();
+                        daySong.play();      
+                    });
+                });
                 break;
             case (perc >= 0.5) && (perc < 0.75):
                 skyNight.hide();
                 cloudSunrise.show().css({
                     'opacity':(1 - (perc - 0.5) * 4)
-                }).animate({opacity: 0}, (duringMinute * 0.75 - passTime) * toMinute);
+                }).animate({opacity: 0}, (duringMinute * 0.75 - passTime) * toMinute,function(){
+                    cloudSunrise.hide();
+                    cloudDay.css({
+                        'display':'block',
+                        'opacity':0
+                    }).animate({opacity: 1}, duringMinute * 0.25 * toMinute)
+                });
                 skySunrise.show().css({
                     'opacity':(1 - perc) * 2
                 }).animate({opacity: 0}, (duringMinute - passTime) * toMinute);
                 skyDay.css({
                     'display':'block',
                     'opacity':(perc - 0.5) * 2
-                }).animate({opacity: 1}, (duringMinute - passTime) * toMinute);
+                }).animate({opacity: 1}, (duringMinute - passTime) * toMinute,function(){
+                    sunriseSong.pause();
+                    daySong.play();      
+                });
                 break;
             case (perc >= 0.75) && (perc <= 1):
                 skyNight.hide();
-                skySunrise.show().css({
-                    'opacity':(1 - perc) * 2
-                }).animate({opacity: 0}, (duringMinute - passTime) * toMinute);
-                skyDay.css({
-                    'display':'block',
-                    'opacity':(perc - 0.5) * 2
-                }).animate({opacity: 1}, (duringMinute - passTime) * toMinute);
                 cloudDay.css({
                     'display':'block',
                     'opacity':(perc - 0.75) * 4
                 }).animate({opacity: 1}, (duringMinute - passTime) * toMinute);
-                sunriseSong.pause();
-                daySong.play();
+                skySunrise.show().css({
+                    'opacity':(1 - perc) * 2
+                }).animate({opacity: 0}, (duringMinute - passTime) * toMinute);
+                skyDay.css({
+                    'display':'block',
+                    'opacity':(perc - 0.5) * 2
+                }).animate({opacity: 1}, (duringMinute - passTime) * toMinute,function(){
+                    sunriseSong.pause();
+                    daySong.play();      
+                });
                 break;
             default:
                 console.log('进入了非法时间区域！');
@@ -120,54 +176,85 @@ function changeSky() {
     if ((now >= sunSetStart) && (now <= sunSetEnd)) {
         var passTime =  (endHours - nowHours) * 60 + (endMinutes - nowMinutes),
             perc = 1 - passTime / duringMinute;
-        console.log(passTime);
-        console.log(perc);
         console.log('但是要日落了～');
         daySong.pause();
         sunsetSong.play();
+        console.log(perc);
         switch (true){
             case (perc >= 0) && (perc < 0.5):
-                skyDay.css({
-                    'opacity':1 - (perc * 2)
-                }).animate({opacity: 0}, (passTime - duringMinute * 0.5) * toMinute);
                 cloudDay.css({
                     'opacity':1 - (perc * 2)
                 }).animate({opacity: 0}, (passTime - duringMinute * 0.5) * toMinute);
-                skySunset.css({
-                    'display':'block',
-                    'opacity':perc * 2
-                }).animate({opacity: 1}, (passTime - duringMinute * 0.5) * toMinute);
+
+                skyDay.css({
+                    'opacity':1 - (perc * 2)
+                }).animate({opacity: 0}, (passTime - duringMinute * 0.5) * toMinute);
+
                 cloudSunset.css({
                     'display':'block',
                     'opacity':perc * 2
-                }).animate({opacity: 1}, (passTime - duringMinute * 0.5) * toMinute);
+                }).animate({opacity: 1}, (passTime - duringMinute * 0.5) * toMinute,function(){
+                    cloudSunset.css({
+                        'opacity':1
+                    }).animate({opacity:0}, duringMinute * 0.25 * toMinute,function(){
+                        cloudNight.css({
+                            'display':'block',
+                            'opacity': 0
+                        }).animate({opacity: 1}, duringMinute * 0.25 * toMinute);
+                    });
+                });
+
+                skySunset.css({
+                    'display':'block',
+                    'opacity':perc * 2
+                }).animate({opacity: 1}, (passTime - duringMinute * 0.5) * toMinute,function(){
+                    initStars();
+                    setStarPosition();
+                    skyNight.css({
+                        'display':'block',
+                        'opacity':0
+                    }).animate({opacity: 1}, duringMinute * 0.5 * toMinute,function(){
+                        sunsetSong.pause();
+                        nightSong.play();
+                    });
+                });
                 break;
             case (perc >= 0.5) && (perc < 0.75):
                 skyDay.hide();
                 skySunset.show();
                 cloudSunset.show().css({
                     'opacity':(1 - (perc - 0.5) * 4)
-                }).animate({opacity: 0}, passTime / 2  * toMinute);
+                }).animate({opacity: 0}, passTime / 2  * toMinute,function(){
+                    cloudNight.css({
+                        'display':'block',
+                        'opacity': 0
+                    }).animate({opacity: 1}, duringMinute * 0.25 * toMinute);
+                });
                 skyNight.css({
                     'display':'block',
                     'opacity':(perc - 0.5) * 2
-                }).animate({opacity: 1}, passTime * toMinute);
+                }).animate({opacity: 1}, passTime * toMinute,function(){
+                    sunsetSong.pause();
+                    nightSong.play();
+                });
                 initStars();
                 setStarPosition();
                 break;
-            case (perc >= 0.75) && (perc <= 1):
-                sunsetSong.pause();
-                nightSong.play();
+            case (perc >= 0.75) && (perc <= 1):2
                 skyDay.hide();
                 skySunset.show();
-                skyNight.css({
-                    'display':'block',
-                    'opacity':(perc - 0.5) * 2
-                }).animate({opacity: 1}, passTime * toMinute);
                 cloudNight.css({
                     'display':'block',
                     'opacity':(perc - 0.75) * 4
                 }).animate({opacity: 1}, passTime * toMinute);
+
+                skyNight.css({
+                    'display':'block',
+                    'opacity':(perc - 0.5) * 2
+                }).animate({opacity: 1}, passTime * toMinute,function(){
+                    sunsetSong.pause();
+                    nightSong.play();
+                });
                 initStars();
                 setStarPosition();
                 break;
@@ -191,26 +278,30 @@ function initStars() {
 }
 
 function setStarPosition() {
+
     var width = $(window).width() - 240,
         height = $(window).height() - 600;
-    var duringTime = (24 - endHours + startHours) * 60 + (60 - endMinutes + startMinutes);
-    if ((24 - nowHours) >= 1 && (24 - nowHours) <= 9) {
+    var now = nowTime().now,
+        nowHours = nowTime().hours,
+        nowMinutes = nowTime().minutes,
+        duringTime = (24 - endHours + startHours) * 60 + (60 - endMinutes + startMinutes);
+
+    if (nowHours >= 15) {
         passTime = (nowHours - endHours) * 60 + (nowMinutes - endMinutes);
-    } else if ((24 - nowHours) >= 13 && (24 - nowHours) <= 24) {
+    }else{
         passTime = (24 - endHours + nowHours) * 60 + (60 - endMinutes + nowMinutes);
-    } else {
-        passTime = 0;
     }
+
     var perc = passTime / duringTime;
-    
-    if ((0 < perc) && (perc <= 0.5)) {
+
+    if ((perc > 0) && (perc <= 0.5)) {
         starUed.css({
             'top': (height * (1 - perc * 2)) + 'px',
             'left': (perc * 100) + '%',
             'transform': 'rotate(' + (20 * (perc * 2 - 1)) + 'deg)'
         })
     }
-    if ((0.5 < perc) && (perc < 1)) {
+    if ((perc > 0.5) && (perc <= 1)) {
         starUed.css({
             'top': (height * (perc * 2 - 1)) + 'px',
             'left': (perc * 100) + '%',
