@@ -15,12 +15,9 @@ var startHours = date.sunRise_start_hours,
     endMinutes = date.sunSet_end_minutes;
 
 var time = nowTime(),
-    // now = nowTime().now;
-    // nowHours = time.hours,
-    // nowMinutes = time.minutes;
-    now = '17:13',
-    nowHours = 17,
-    nowMinutes = 33;
+    now = nowTime().now;
+    nowHours = time.hours,
+    nowMinutes = time.minutes;
 
 var  skyDay = $('.sky-day'),
      cloudDay = $('.cloud-day'),
@@ -67,8 +64,6 @@ function changeSky() {
         sunriseSong.play();
         skySunrise.show();
         starUed.hide();
-        console.log(passTime);
-        console.log(perc);
         switch (true){
             case (perc >= 0) && (perc < 0.25):
                 cloudNight.css({
@@ -77,7 +72,7 @@ function changeSky() {
                 skyNight.css({
                     'opacity':(1 - perc * 2)
                 }).animate({opacity: 0}, (duringMinute * 0.5 - passTime) * toMinute);
-                
+
                 break;
             case (perc >= 0.25) && (perc < 0.5):
                 cloudNight.hide();

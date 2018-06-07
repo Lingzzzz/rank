@@ -15,8 +15,7 @@ body {
   min-height: 720px;
   margin: 0 auto;
 }
-li {
-  list-style: none; }
+li {list-style: none; }
 
 .sky{
   display: none;
@@ -238,7 +237,6 @@ li {
   width: 3px;
   height: 3px;
   background-color: #fff;
-
 }
 .star-ued{
   position: absolute;
@@ -247,52 +245,21 @@ li {
   left: 0px;
   transform:rotate(-20deg);
 }
+
 .rank{
   position: absolute;
   left: 0;
   right: 0;
   bottom: 0;
   width: 540px;
+  height: 640px;
   margin:0 auto;
+  
 }
-.name{
-  position: relative;
-  max-width: 120px;
-  max-height: 120px;
-  background-color: #ff3080;
-  color: #ffffff;
-  font-size: 36px;
-  font-family: 'fzjcxs';
-  padding: 0 6px 6px 6px;
+.rank-pos{
+  margin-bottom:-10px;
 }
-.name .tl-cocorner{
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 4px;
-  height: 4px;
-}
-.name .tr-cocorner{
-  position: absolute;
-  top: 0;
-  right: 0;
-  width: 4px;
-  height: 4px;
-}
-.name .bl-cocorner{
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 18px;
-  height: 12px;
-}
-.name .br-cocorner{
-  position: absolute;
-  bottom: 0;
-  right: 0;
-  width: 4px;
-  height: 4px;
-}
+
 .rank .ued-paizi{
   transform-origin: 50% 80%;
   -webkit-transform-origin:50% 80%;
@@ -370,17 +337,24 @@ li {
     -webkit-transform: rotate(0deg);
     transform: rotate(0deg);}
 }
-.rank .renwu{
+.workmate{
   position: absolute;
-  width: 32px;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 960px;
+  height: 720px;
+  margin:0 auto;
 }
-.rank .xiaofeifei{
+.workmate div{
   position: absolute;
-  bottom: 54px;
-  right: 196px;
-  width: 32px;
+  width: 40px;
 }
-.rank .xiaofeifei .zuoshou{
+.workmate .xiaofeifei{
+  bottom: 48px;
+  right: 396px;
+}
+.workmate .xiaofeifei .zuoshou{
   transform-origin: 50% 66%;
   -webkit-transform-origin:50% 66%;
   animation:xiaofeifeishou 2s infinite linear;
@@ -405,11 +379,11 @@ li {
   transform: rotate(30deg);}
 }
 
-.rank .miaomiao{
-  top: 212px;
-  right: 102px;
+.workmate .miaomiao{
+  top: 284px;
+  right: 304px;
 }
-.rank .miaomiao .toubu{
+.workmate .miaomiao .toubu{
   animation:miaomiaotoubu 500ms steps(1) infinite 0s;
   -webkit-animation:miaomiaotoubu 500ms steps(1) infinite 0s;
 }
@@ -424,13 +398,13 @@ li {
   -webkit-transform: translate(0, 0);
   transform: translate(0, 0);}
 }
-.rank .xiangsiyu{
+.workmate .xiangsiyu{
   width: 240px;
-  top: -252px;
-  right: -204px;
+  top: -172px;
+  right: 10px;
 }
-.rank .xiangsiyu .qiqiu{
-  animation:xiangsiyuqiqiu 10s infinite linear;
+.workmate .xiangsiyu .qiqiu{
+  animation:xiangsiyuqiqiu 10s infinite linear;                 
   -webkit-animation:xiangsiyuqiqiu 10s infinite linear;
 }
 @keyframes xiangsiyuqiqiu {
@@ -444,9 +418,9 @@ li {
     -webkit-transform: translate(208px, -356px);opacity: 0;
     transform: translate(208px, -356px);opacity: 0;}
 }
-.rank .xiangsiyu .shou{
-  transform-origin: 6.5% 94.8%;
-  -webkit-transform-origin:6.5% 94.8%;
+.workmate .xiangsiyu .shou{
+  transform-origin: 6.5% 93.8%;
+  -webkit-transform-origin:6.5% 93.8%;
   animation:xiangsiyushou 10s infinite linear;
   -webkit-animation:xiangsiyushou 10s infinite linear;
 }
@@ -464,13 +438,13 @@ li {
     -webkit-transform: rotate(0deg);
     transform: rotate(0deg);}
 }
-.rank .fenganquan{
-  top: 6px;
-  right: 180px;
+.workmate .fenganquan{
+  top: 74px;
+  right: 382px;
 }
-.rank .fenganquan .shou{
-  transform-origin: 16% 49%;
-  -webkit-transform-origin:16% 49%;
+.workmate .fenganquan .shou{
+  transform-origin: 4% 43%;
+  -webkit-transform-origin:4% 43%;
   animation:fenganquanshou 3s infinite linear;
   -webkit-animation:fenganquanshou 3s infinite linear;
 }
@@ -497,7 +471,7 @@ li {
     -webkit-transform: rotate(30deg);
     transform: rotate(30deg);}
 }
-.rank .fenganquan .tou{
+.workmate .fenganquan .tou{
   animation:fenganquantou 3s infinite linear;
   -webkit-animation:fenganquantou 3s infinite linear;
 }
@@ -545,11 +519,11 @@ li {
     -webkit-transform:translate(0px, 0px) ;
     transform: translate(0px, 0px);}
 }
-.rank .caoshufang{
-  bottom: 198px;
-  left: 220px;
+.workmate .caoshufang{
+  bottom: 192px;
+  left: 440px;
 }
-.rank .caoshufang .lian{
+.workmate .caoshufang .lian{
   animation:caoshufanglian 4s steps(1) infinite 0s;
   -webkit-animation:caoshufanglian 4s steps(1) infinite 0s;
 }
@@ -567,7 +541,7 @@ li {
     -webkit-transform: translate(0px, 0px);
     transform: translate(0px, 0px);}
 }
-.rank .caoshufang .shenti{
+.workmate .caoshufang .shenti{
   animation:caoshufangshenti 4s infinite linear;
   -webkit-animation:caoshufangshenti 4s infinite linear;
 }
@@ -588,7 +562,7 @@ li {
     -webkit-transform: translate(0px, 0px);
     transform: translate(0px, 0px);}
 }
-.rank .caoshufang .shou{
+.workmate .caoshufang .shou{
   animation:caoshufangshou 4s infinite linear;
   -webkit-animation:caoshufangshou 4s infinite linear;
 }
@@ -612,11 +586,11 @@ li {
     -webkit-transform: translate(0px, 0px);
     transform: translate(0px, 0px);}
 }
-.rank .jinru{
-  bottom: 198px;
-  left: 184px;
+.workmate .jinru{
+  bottom: 192px;
+  left: 400px;
 }
-.rank .jinru .shou{
+.workmate .jinru .shou{
   animation:jinrushou 4s infinite linear;
   -webkit-animation:jinrushou 4s infinite linear;
 }
@@ -631,12 +605,212 @@ li {
     -webkit-transform: translate(0px, 3px);
     transform: translate(0px, 3px);}
 }
-.rank .jinru .zui{
+.workmate .jinru .zui{
   animation:jinruzui 4s steps(1) infinite 0s;
   -webkit-animation:jinruzui 4s steps(1) infinite 0s;
 }
 @keyframes jinruzui {
   0% {opacity: 1;}
   10% {opacity: 0;}
+  50% {opacity: 1;}
   100% {opacity: 1;}
 }
+.workmate .dingchenyi{
+  bottom: 72px;
+  left: 252px;
+}
+.workmate .dingchenyi .zuotuishang{
+  transform-origin: 24px 781px;
+  -webkit-transform-origin:24px 781px;
+  animation:dingchenyituishang 6s infinite linear;
+  -webkit-animation:dingchenyituizuo 6s infinite linear;
+}
+.workmate .dingchenyi .zuotuixia{
+  transform-origin: 23px 800px;
+  -webkit-transform-origin:23px 800px;
+  animation:dingchenyituiyou 6s infinite linear;
+  -webkit-animation:dingchenyituiyou 6s infinite linear;
+}
+.workmate .dingchenyi .youtuishang{
+  transform-origin: 16px 781px;
+  -webkit-transform-origin:16px 781px;
+  animation:dingchenyituiyou 6s infinite linear;
+  -webkit-animation:dingchenyituiyou 6s infinite linear;
+}
+.workmate .dingchenyi .youtuixia{
+  transform-origin: 17px 800px;
+  -webkit-transform-origin:17px 800px;
+  animation:dingchenyituizuo 6s infinite linear;
+  -webkit-animation:dingchenyituizuo 6s infinite linear;
+}
+
+@keyframes dingchenyituizuo {
+  0% {
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);}
+  10% {
+    -webkit-transform: rotate(-45deg);
+    transform: rotate(-45deg);}
+  15% {
+    -webkit-transform: rotate(-45deg);
+    transform: rotate(-45deg);}
+  20% {
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);}
+  100% {
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);}
+}
+
+@keyframes dingchenyituiyou {
+  0% {
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);}
+  10% {
+    -webkit-transform: rotate(45deg);
+    transform: rotate(45deg);}
+  15% {
+    -webkit-transform: rotate(45deg);
+    transform: rotate(45deg);}
+  20% {
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);}
+  100% {
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);}
+}
+.workmate .dingchenyi .zuoshou{
+  transform-origin: 26px 766px;
+  -webkit-transform-origin:26px 766px;
+  animation:dingchenyizuoshou 6s infinite linear;
+  -webkit-animation:dingchenyizuoshou 6s infinite linear;
+}
+.workmate .dingchenyi .youshou{
+  transform-origin: 13px 766px;
+  -webkit-transform-origin:13px 766px;
+  animation:dingchenyiyoushou 6s infinite linear;
+  -webkit-animation:dingchenyiyoushou 6s infinite linear;
+}
+@keyframes dingchenyizuoshou {
+  0% {
+    -webkit-transform: translate(0px, 0px)rotate(0deg);
+    transform: translate(0px, 0px)rotate(0deg);}
+  10% {
+    -webkit-transform: translate(0px, 6px)rotate(-45deg);
+    transform: translate(0px, 6px)rotate(-45deg);}
+  15% {
+    -webkit-transform: translate(0px, 6px)rotate(-45deg);
+    transform: translate(0px, 6px)rotate(-45deg);}
+  20% {
+    -webkit-transform: translate(0px, 6px)rotate(0deg);
+    transform: translate(0px, 6px)rotate(0deg);}
+  90% {
+    -webkit-transform: translate(0px, 6px)rotate(0deg);
+    transform: translate(0px, 6px)rotate(0deg);}
+  100% {
+    -webkit-transform: translate(0px, 0px)rotate(0deg);
+    transform: translate(0px, 0px)rotate(0deg);}
+}
+@keyframes dingchenyiyoushou {
+  0% {
+    -webkit-transform: translate(0px, 0px)rotate(0deg);
+    transform: translate(0px, 0px)rotate(0deg);}
+  10% {
+    -webkit-transform: translate(0px, 6px)rotate(45deg);
+    transform: translate(0px, 6px)rotate(45deg);}
+  15% {
+    -webkit-transform: translate(0px, 6px)rotate(45deg);
+    transform: translate(0px, 6px)rotate(45deg);}
+  20% {
+    -webkit-transform: translate(0px, 6px)rotate(0deg);
+    transform: translate(0px, 6px)rotate(0deg);}
+  90% {
+    -webkit-transform: translate(0px, 6px)rotate(0deg);
+    transform: translate(0px, 6px)rotate(0deg);}
+  100% {
+    -webkit-transform: translate(0px, 0px)rotate(0deg);
+    transform: translate(0px, 0px)rotate(0deg);}
+}
+
+.workmate .dingchenyi .shangshen{
+  animation:dingchenyishangshen 6s infinite linear;
+  -webkit-animation:dingchenyishangshen 6s infinite linear;
+}
+@keyframes dingchenyishangshen {
+  0% {
+    -webkit-transform: translate(0px, 0px);
+    transform: translate(0px, 0px);}
+  10% {
+    -webkit-transform:translate(0px, 4px);
+    transform: translate(0px, 4px);}
+  15% {
+    -webkit-transform:translate(0px, 4px);
+    transform: translate(0px, 4px);}
+  20% {
+    -webkit-transform: translate(0px, 0px);
+    transform: translate(0px, 0px);}
+  100% {
+    -webkit-transform: translate(0px, 0px);
+    transform: translate(0px, 0px);}
+}
+.workmate .dingchenyi .shenti{
+  animation:dingchenyishenti 6s infinite linear;
+  -webkit-animation:dingchenyishenti 6s infinite linear;
+}
+@keyframes dingchenyishenti {
+  0% {
+    -webkit-transform: translate(0px, 0px);opacity: 1;
+    transform: translate(0px, 0px);opacity: 1}
+  18% {
+    -webkit-transform: translate(0px, 0px);opacity: 1;
+    transform: translate(0px, 0px);opacity: 1}
+  50% {
+    -webkit-transform:translate(0px, -700px);opacity: 0;
+    transform: translate(0px, -700px);opacity: 0;}
+  90% {
+    -webkit-transform: translate(0px, 0px);opacity: 0;
+    transform: translate(0px, 0px);opacity: 0;}
+  100% {
+    -webkit-transform: translate(0px, 0px);opacity: 1;
+    transform: translate(0px, 0px);opacity: 1;}
+}
+
+.name{
+  position: relative;
+  max-width: 120px;
+  max-height: 120px;
+  background-color: #ff3080;
+  color: #ffffff;
+  font-size: 36px;
+  font-family: 'fzjcxs';
+  padding: 0 6px 6px 6px;
+}
+.name .tl-cocorner{
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 4px;
+  height: 4px;
+}
+.name .tr-cocorner{
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 4px;
+  height: 4px;
+}
+.name .bl-cocorner{
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 18px;
+  height: 12px;
+}
+.name .br-cocorner{
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 4px;
+  height: 4px;
+}
+
