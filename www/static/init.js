@@ -26,14 +26,13 @@ var  skyDay = $('.sky-day'),
      cloudSunrise = $('.cloud-sunrise'),
      skySunset = $('.sky-sunset'),
      cloudSunset = $('.cloud-sunset'),
+     sunUed = $('.sun-ued'),
      starUed = $('.star-ued');
 
 var sunriseSong = new Audio("sunrise.mp3"),
     daySong = new Audio("day.mp3"),
     sunsetSong = new Audio("sunset.mp3"),
     nightSong = new Audio("night.mp3");
-
-var isDay, isNight;
 
 console.log('今天的UED-Rank系统的日出时间是' + sunRiseStart + '，将持续到' + sunRiseEnd + '结束。');
 console.log('今天的UED-Rank系统的日落时间是' + sunSetStart + '，将持续到' + sunSetEnd + '结束。');
@@ -45,6 +44,8 @@ function initSky() {
         skyDay.show();
         cloudDay.fadeIn();
         daySong.play();
+        setSunPosition();
+        setInterval(setSunPosition, 60000);
     } else {
         console.log('漫长黑夜～');
         skyNight.show();
@@ -56,7 +57,6 @@ function initSky() {
     }
     changeSky();
 }
-
 function changeSky() {
     if ((now >= sunRiseStart) && (now <= sunRiseEnd)) {
         var passTime =  (nowHours - startHours) * 60 + (nowMinutes - startMinutes),
@@ -66,6 +66,7 @@ function changeSky() {
         sunriseSong.play();
         skySunrise.show();
         starUed.hide();
+        sunUed.hide();
         switch (true){
             case (perc >= 0) && (perc < 0.25):
                 cloudNight.css({
@@ -91,7 +92,6 @@ function changeSky() {
                         'display':'block',
                         'opacity':1
                     }).animate({opacity: 0}, duringMinute * 0.5 * toMinute);
-
                     skyDay.css({
                         'display':'block',
                         'opacity':0
@@ -99,6 +99,8 @@ function changeSky() {
                         sunriseSong.pause();
                         daySong.play();      
                     });
+                    sunUed.show();
+                    setSunPosition();
                 });
                 break;
             case (perc >= 0.25) && (perc < 0.5):
@@ -128,6 +130,8 @@ function changeSky() {
                         sunriseSong.pause();
                         daySong.play();      
                     });
+                    sunUed.show();
+                    setSunPosition();
                 });
                 break;
             case (perc >= 0.5) && (perc < 0.75):
@@ -151,6 +155,8 @@ function changeSky() {
                     sunriseSong.pause();
                     daySong.play();      
                 });
+                sunUed.show();
+                setSunPosition();
                 break;
             case (perc >= 0.75) && (perc <= 1):
                 skyNight.hide();
@@ -168,6 +174,8 @@ function changeSky() {
                     sunriseSong.pause();
                     daySong.play();      
                 });
+                sunUed.show();
+                setSunPosition();
                 break;
             default:
                 console.log('进入了非法时间区域！');
@@ -179,17 +187,15 @@ function changeSky() {
         console.log('但是要日落了～');
         daySong.pause();
         sunsetSong.play();
-        console.log(perc);
+        sunUed.hide();
         switch (true){
             case (perc >= 0) && (perc < 0.5):
                 cloudDay.css({
                     'opacity':1 - (perc * 2)
                 }).animate({opacity: 0}, (passTime - duringMinute * 0.5) * toMinute);
-
                 skyDay.css({
                     'opacity':1 - (perc * 2)
                 }).animate({opacity: 0}, (passTime - duringMinute * 0.5) * toMinute);
-
                 cloudSunset.css({
                     'display':'block',
                     'opacity':perc * 2
@@ -203,7 +209,6 @@ function changeSky() {
                         }).animate({opacity: 1}, duringMinute * 0.25 * toMinute);
                     });
                 });
-
                 skySunset.css({
                     'display':'block',
                     'opacity':perc * 2
@@ -263,22 +268,31 @@ function changeSky() {
         }
     }
 }
-
-function initStars() {
-    var width = $(window).width() * 1.5,
-        height = $(window).height() - 400;
-    var num = getRandomNum(600, 800);
-    for (i = 0; i < num; i++) {
-        var top_ = getRandomNum(0, height);
-        var left = getRandomNum(0, width);
-        var alpha = getRandomNum(1, 7);
-        var stars = '<div class="stars" style="top: ' + top_ + 'px;left: ' + left + 'px;opacity: 0.' + alpha + '"></div>'
-        $('.sky-night').append(stars);
+function setSunPosition() {
+    var width = $(window).width() - 240,
+        height = $(window).height() - 600;
+    var now = nowTime().now,
+        nowHours = nowTime().hours,
+        nowMinutes = nowTime().minutes,
+        duringTime = (endHours - startHours) * 60 + (endMinutes - startMinutes),
+        passTime = (nowHours - startHours) * 60 + (nowMinutes - startMinutes),
+        perc = passTime / duringTime;
+    if ((perc > 0) && (perc <= 0.5)) {
+        sunUed.css({
+            'top': (height * (1 - perc * 2)) + 'px',
+            'left': (perc * 100) + '%',
+            'transform': 'rotate(' + (20 * (perc * 2 - 1)) + 'deg)'
+        })
+    }
+    if ((perc > 0.5) && (perc <= 1)) {
+        sunUed.css({
+            'top': (height * (perc * 2 - 1)) + 'px',
+            'left': (perc * 100) + '%',
+            'transform': 'rotate(' + (20 * (perc * 2 - 1)) + 'deg)'
+        })
     }
 }
-
 function setStarPosition() {
-
     var width = $(window).width() - 240,
         height = $(window).height() - 600;
     var now = nowTime().now,
@@ -309,7 +323,32 @@ function setStarPosition() {
         })
     }
 }
-
+function initStars() {
+    var width = $(window).width() * 1.5,
+        height = $(window).height() - 400;
+    var num = getRandomNum(600, 800);
+    for (i = 0; i < num; i++) {
+        var top_ = getRandomNum(0, height);
+        var left = getRandomNum(0, width);
+        var alpha = getRandomNum(1, 7);
+        var stars = '<div class="stars" style="top: ' + top_ + 'px;left: ' + left + 'px;opacity: 0.' + alpha + '"></div>'
+        $('.sky-night').append(stars);
+    }
+}
+function nowTime() {
+    var time = new Object();
+    var date = new Date();
+    time.hours = date.getHours();
+    time.minutes = date.getMinutes();
+    time.now = (time.hours < 10 ? '0' + time.hours : time.hours) + ':' + (time.minutes < 10 ? '0' + time.minutes : time.minutes);
+    time.str = date.getTime();
+    return time
+}
+function getRandomNum(min, max) {
+    min = Math.ceil(min);
+    max = Math.floor(max);
+    return Math.floor(Math.random() * (max - min + 1)) + min;
+}
 function getSunRiseSet(Latitude, Longitude, TimeZone) {
     var curTime = new Date();
     // Variable names used: B5, C, C2, C3, CD, D, DR, H, HR, HS, L0, L5, M, MR, MS, N, PI, R1, RD, S1, SC, SD, str
@@ -386,7 +425,6 @@ function getSunRiseSet(Latitude, Longitude, TimeZone) {
 
     return retVal;
 }
-
 function parseTime(aTime) {
     var aDateTimeObject = 'none';
     if (aTime !== undefined && aTime.length) {
@@ -400,25 +438,8 @@ function parseTime(aTime) {
     }
     return aDateTimeObject;
 }
-
 function GMTTime() {
     var aDate = new Date();
     var aDateAdjustedToGMTInMS = aDate.getTime() + (aDate.getTimezoneOffset() * 60 * 1000);
     return (new Date(aDateAdjustedToGMTInMS));
-}
-
-function nowTime() {
-    var time = new Object();
-    var date = new Date();
-    time.hours = date.getHours();
-    time.minutes = date.getMinutes();
-    time.now = (time.hours < 10 ? '0' + time.hours : time.hours) + ':' + (time.minutes < 10 ? '0' + time.minutes : time.minutes);
-    time.str = date.getTime();
-    return time
-}
-
-function getRandomNum(min, max) {
-    min = Math.ceil(min);
-    max = Math.floor(max);
-    return Math.floor(Math.random() * (max - min + 1)) + min;
 }

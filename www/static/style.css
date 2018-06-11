@@ -238,6 +238,13 @@ li {list-style: none; }
   height: 3px;
   background-color: #fff;
 }
+.sun-ued{
+  position: absolute;
+  width: 240px;
+  top: calc(100% - 600px);
+  left: 0px;
+  transform:rotate(-20deg);
+}
 .star-ued{
   position: absolute;
   width: 240px;
@@ -337,7 +344,7 @@ li {list-style: none; }
     -webkit-transform: rotate(0deg);
     transform: rotate(0deg);}
 }
-.workmate{
+.workmate,.name{
   position: absolute;
   left: 0;
   right: 0;
@@ -438,87 +445,6 @@ li {list-style: none; }
     -webkit-transform: rotate(0deg);
     transform: rotate(0deg);}
 }
-.workmate .fenganquan{
-  top: 74px;
-  right: 382px;
-}
-.workmate .fenganquan .shou{
-  transform-origin: 4% 43%;
-  -webkit-transform-origin:4% 43%;
-  animation:fenganquanshou 3s infinite linear;
-  -webkit-animation:fenganquanshou 3s infinite linear;
-}
-@keyframes fenganquanshou {
-  0% {
-    -webkit-transform: rotate(-10deg);
-    transform: rotate(-10deg);}
-  12% {
-    -webkit-transform: rotate(15deg);
-    transform: rotate(15deg);}
-  24% {
-    -webkit-transform: rotate(-10deg);
-    transform: rotate(-10deg);}
-  36% {
-    -webkit-transform: rotate(30deg);
-    transform: rotate(30deg);}
-  48% {
-    -webkit-transform: rotate(-10deg);
-    transform: rotate(-10deg);}
-  64% {
-    -webkit-transform: rotate(30deg);
-    transform: rotate(30deg);}
-  100% {
-    -webkit-transform: rotate(30deg);
-    transform: rotate(30deg);}
-}
-.workmate .fenganquan .tou{
-  animation:fenganquantou 3s infinite linear;
-  -webkit-animation:fenganquantou 3s infinite linear;
-}
-@keyframes fenganquantou {
-  0% {
-    -webkit-transform:translate(0px, 0px) ;
-    transform: translate(0px, 0px);}
-  64% {
-    -webkit-transform:translate(0px, 0px) ;
-    transform: translate(0px, 0px);}
-  67% {
-    -webkit-transform:translate(0px, -3px) ;
-    transform: translate(0px, -3px);}
-  70% {
-    -webkit-transform:translate(-1px, -3px) ;
-    transform: translate(-1px, -3px);}
-  73% {
-    -webkit-transform:translate(1px, -3px) ;
-    transform: translate(1px, -3px);}
-  76% {
-    -webkit-transform:translate(-1px, -3px) ;
-    transform: translate(-1px, -3px);}
-  79% {
-    -webkit-transform:translate(1px, -3px) ;
-    transform: translate(1px, -3px);}
-  82% {
-    -webkit-transform:translate(-1px, -3px) ;
-    transform: translate(-1px, -3px);}
-  85% {
-    -webkit-transform:translate(1px, -3px) ;
-    transform: translate(1px, -3px);}
-  88% {
-    -webkit-transform:translate(-1px, -3px) ;
-    transform: translate(-1px, -3px);}
-  91% {
-    -webkit-transform:translate(1px, -3px) ;
-    transform: translate(1px, -3px);}
-  94% {
-    -webkit-transform:translate(0px, -3px) ;
-    transform: translate(0px, -3px);}
-  97% {
-    -webkit-transform:translate(0px, 0px) ;
-    transform: translate(0px, 0px);}
-  100% {
-    -webkit-transform:translate(0px, 0px) ;
-    transform: translate(0px, 0px);}
-}
 .workmate .caoshufang{
   bottom: 192px;
   left: 440px;
@@ -614,6 +540,87 @@ li {list-style: none; }
   10% {opacity: 0;}
   50% {opacity: 1;}
   100% {opacity: 1;}
+}
+.workmate .fenganquan{
+  top: 74px;
+  right: 382px;
+}
+.workmate .fenganquan .shou{
+  transform-origin: 4% 43%;
+  -webkit-transform-origin:4% 43%;
+  animation:fenganquanshou 3s infinite linear;
+  -webkit-animation:fenganquanshou 3s infinite linear;
+}
+@keyframes fenganquanshou {
+  0% {
+    -webkit-transform: rotate(-10deg);
+    transform: rotate(-10deg);}
+  12% {
+    -webkit-transform: rotate(15deg);
+    transform: rotate(15deg);}
+  24% {
+    -webkit-transform: rotate(-10deg);
+    transform: rotate(-10deg);}
+  36% {
+    -webkit-transform: rotate(30deg);
+    transform: rotate(30deg);}
+  48% {
+    -webkit-transform: rotate(-10deg);
+    transform: rotate(-10deg);}
+  64% {
+    -webkit-transform: rotate(30deg);
+    transform: rotate(30deg);}
+  100% {
+    -webkit-transform: rotate(30deg);
+    transform: rotate(30deg);}
+}
+.workmate .fenganquan .tou{
+  animation:fenganquantou 3s infinite linear;
+  -webkit-animation:fenganquantou 3s infinite linear;
+}
+@keyframes fenganquantou {
+  0% {
+    -webkit-transform:translate(0px, 0px) ;
+    transform: translate(0px, 0px);}
+  64% {
+    -webkit-transform:translate(0px, 0px) ;
+    transform: translate(0px, 0px);}
+  67% {
+    -webkit-transform:translate(0px, -3px) ;
+    transform: translate(0px, -3px);}
+  70% {
+    -webkit-transform:translate(-1px, -3px) ;
+    transform: translate(-1px, -3px);}
+  73% {
+    -webkit-transform:translate(1px, -3px) ;
+    transform: translate(1px, -3px);}
+  76% {
+    -webkit-transform:translate(-1px, -3px) ;
+    transform: translate(-1px, -3px);}
+  79% {
+    -webkit-transform:translate(1px, -3px) ;
+    transform: translate(1px, -3px);}
+  82% {
+    -webkit-transform:translate(-1px, -3px) ;
+    transform: translate(-1px, -3px);}
+  85% {
+    -webkit-transform:translate(1px, -3px) ;
+    transform: translate(1px, -3px);}
+  88% {
+    -webkit-transform:translate(-1px, -3px) ;
+    transform: translate(-1px, -3px);}
+  91% {
+    -webkit-transform:translate(1px, -3px) ;
+    transform: translate(1px, -3px);}
+  94% {
+    -webkit-transform:translate(0px, -3px) ;
+    transform: translate(0px, -3px);}
+  97% {
+    -webkit-transform:translate(0px, 0px) ;
+    transform: translate(0px, 0px);}
+  100% {
+    -webkit-transform:translate(0px, 0px) ;
+    transform: translate(0px, 0px);}
 }
 .workmate .dingchenyi{
   bottom: 72px;
@@ -775,42 +782,104 @@ li {list-style: none; }
     transform: translate(0px, 0px);opacity: 1;}
 }
 
-.name{
+.name .title{
   position: relative;
   max-width: 120px;
-  max-height: 120px;
+  border-radius: 2px;
   background-color: #ff3080;
   color: #ffffff;
-  font-size: 36px;
-  font-family: 'fzjcxs';
-  padding: 0 6px 6px 6px;
+  font-size: 12px;
+  font-family: 'zpix';
+  text-align: center;
+  padding: 4px 2px;
 }
-.name .tl-cocorner{
+.name .title .bl-cocorner{
   position: absolute;
-  top: 0;
-  left: 0;
-  width: 4px;
-  height: 4px;
+  bottom: -9px;
+  left: 3px;
+  width: 9px;
+  height: 9px;
 }
-.name .tr-cocorner{
+.name .title .br-cocorner{
   position: absolute;
-  top: 0;
-  right: 0;
-  width: 4px;
-  height: 4px;
+  bottom: -9px;
+  right: 3px;
+  width: 9px;
+  height: 9px;
 }
-.name .bl-cocorner{
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 18px;
-  height: 12px;
+.name .miaomiao{
+  top: 246px;
+  left: 614px;
+  animation:miaomiaotoubu 500ms steps(1) infinite 0s;
+  -webkit-animation:miaomiaotoubu 500ms steps(1) infinite 0s;
 }
-.name .br-cocorner{
-  position: absolute;
-  bottom: 0;
-  right: 0;
-  width: 4px;
-  height: 4px;
+.name .xiangsiyu{
+  top: 122px;
+  left: 708px;
+  animation:xiangsiyuname 10s infinite linear;                 
+  -webkit-animation:xiangsiyuname 10s infinite linear;
 }
-
+@keyframes xiangsiyuname {
+  0% {
+    -webkit-transform: translate(0, 0);
+    transform: translate(0, 0);}
+  80% {
+    -webkit-transform: translate(208px, -356px);opacity: 0;
+    transform: translate(208px, -356px);opacity: 0;}
+  81% {
+    -webkit-transform: translate(0, 0);opacity: 0;
+    transform: translate(0, 0);opacity: 0;}
+  90% {
+    -webkit-transform: translate(0, 0);opacity: 1;
+    transform: translate(0, 0);opacity: 1;}
+  100% {
+    -webkit-transform: translate(0, 0);opacity: 1;
+    transform: translate(0, 0);opacity: 1;}
+}
+.name .caoshufang{
+  top: 398px;
+  left: 443px;
+  animation:caoshufangshenti 4s infinite linear;
+  -webkit-animation:caoshufangshenti 4s infinite linear;
+}
+.name .jinru{
+  top: 378px;
+  left: 300px;
+  animation:jinrushou 4s infinite linear;
+  -webkit-animation:jinrushou 4s infinite linear;
+}
+.name .fenganquan{
+  top: -56px;
+  left: 536px;
+  animation:fenganquantou 3s infinite linear;
+  -webkit-animation:fenganquantou 3s infinite linear;
+}
+.name .dingchenyi{
+  top: 438px;
+  left: 154px;
+  animation:dingchenyiname 6s infinite linear;
+  -webkit-animation:dingchenyiname 6s infinite linear;
+}
+@keyframes dingchenyiname {
+  0% {
+    -webkit-transform: rotate(0deg);opacity: 1;
+    transform: rotate(0deg);opacity: 1}
+  17% {
+    -webkit-transform: rotate(0deg);opacity: 1;
+    transform: rotate(0deg);opacity: 1}
+  26% {
+    -webkit-transform: rotate(-60deg);opacity: 0.3;
+    transform: rotate(-60deg);opacity: 0.3}
+  28% {
+    -webkit-transform: rotate(-40deg);opacity: 0.2;
+    transform: rotate(-40deg);opacity: 0.2}
+  30% {
+    -webkit-transform: rotate(-50deg);opacity: 0;
+    transform: rotate(-50deg);opacity: 0}
+  90% {
+    -webkit-transform: rotate(0deg);opacity: 0;
+    transform: rotate(0deg);opacity: 0}
+  100% {
+    -webkit-transform: rotate(0deg);opacity: 1;
+    transform: rotate(0deg);opacity: 1}
+}
