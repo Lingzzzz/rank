@@ -1,5 +1,5 @@
 var toMinute = 60 * 1000,
-    duringMinute = 4,
+    duringMinute = 20,
     during  =  duringMinute * toMinute;
 
 var date = getSunRiseSet(31.84, 117.15, 8);

@@ -782,6 +782,150 @@ li {list-style: none; }
     transform: translate(0px, 0px);opacity: 1;}
 }
 
+.workmate .zhongling{
+  width: 100px;
+  top:248px;
+  left: 370px;
+}
+.workmate .zhongling .zuo{
+  animation:zhonglingzuoyou 12s steps(1) infinite 0s;
+  -webkit-animation:zhonglingzuoyou 12s steps(1) infinite 0s;
+  animation-delay: -12s;
+  -webkit-animation-delay: -12s;
+}
+
+.workmate .zhongling .zuo-zuoshou{
+  animation:zhonglingzuozuoshou 1s infinite linear;
+  -webkit-animation:zhonglingzuozuoshou 1s infinite linear;
+  transform-origin: 31px 23px;
+  -webkit-transform-origin:31px 23px;
+}
+@keyframes zhonglingzuozuoshou {
+  0% {
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);}
+  20% {
+    -webkit-transform: rotate(40deg);
+    transform: rotate(40deg);}
+  50% {
+    -webkit-transform: rotate(-45deg);
+    transform: rotate(-45deg);}
+  80% {
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);}
+  100% {
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);}
+}
+.workmate .zhongling .zuo-youshou{
+  animation:zhonglingzuoyoushou 500ms infinite linear;
+  -webkit-animation:zhonglingzuoyoushou 500ms infinite linear;
+  transform-origin: 45px 24px;
+  -webkit-transform-origin:45px 24px;
+}
+.workmate .zhongling .zuo-weiba{
+  animation:zhonglingzuoyoushou 800ms infinite linear;
+  -webkit-animation:zhonglingzuoyoushou 800ms infinite linear;
+  transform-origin: 61px 37px;
+  -webkit-transform-origin:61px 37px;
+}
+@keyframes zhonglingzuoyoushou {
+  0% {
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);}
+  50% {
+    -webkit-transform: rotate(-20deg);
+    transform: rotate(-20deg);}
+  100% {
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);}
+}
+.workmate .zhongling .zuo-shangshen{
+  animation:zhonglingzuoshangshen 800ms infinite linear;
+  -webkit-animation:zhonglingzuoshangshen 800ms infinite linear;
+}
+@keyframes zhonglingzuoshangshen {
+  0% {
+    -webkit-transform: translate(0px, 0px);
+    transform: translate(0px, 0px);}
+  50% {
+    -webkit-transform: translate(0px, 2px);
+    transform: translate(0px, 2px);}
+  100% {
+    -webkit-transform: translate(0px, 0px);
+    transform: translate(0px, 0px);}
+}
+.workmate .zhongling .you{
+  animation:zhonglingzuoyou 12s steps(1) infinite 0s;
+  -webkit-animation:zhonglingzuoyou 12s steps(1) infinite 0s;
+  animation-delay: -6s;
+  -webkit-animation-delay: -6s;
+}
+.workmate .zhongling .you-zuoshou{
+  animation:zhonglingyouzuoshou 1s infinite linear;
+  -webkit-animation:zhonglingyouzuoshou 1s infinite linear;
+  transform-origin: 60px 20px;
+  -webkit-transform-origin:60px 20px;
+}
+@keyframes zhonglingyouzuoshou {
+  0% {
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);}
+  20% {
+    -webkit-transform: rotate(-20deg);
+    transform: rotate(-20deg);}
+  50% {
+    -webkit-transform: rotate(60deg);
+    transform: rotate(60deg);}
+  80% {
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);}
+  100% {
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);}
+}
+.workmate .zhongling .you-youshou{
+  animation:zhonglingzuoyoushou 500ms infinite linear;
+  -webkit-animation:zhonglingyouyoushou 500ms infinite linear;
+}
+@keyframes zhonglingyouyoushou {
+  0% {
+    -webkit-transform: translate(0px, 0px);
+    transform: translate(0px, 0px);}
+  50% {
+    -webkit-transform: translate(-2px, -2px);
+    transform: translate(-2px, -2px);}
+  100% {
+    -webkit-transform: translate(0px, 0px);
+    transform: translate(0px, 0px);}
+}
+.workmate .zhongling .you-weiba{
+  animation:zhonglingyouweiba 800ms infinite linear;
+  -webkit-animation:zhonglingyouweiba 800ms infinite linear;
+  transform-origin: 31px 38px;
+  -webkit-transform-origin:31px 38px;
+}
+@keyframes zhonglingyouweiba {
+  0% {
+    -webkit-transform: rotate(10deg);
+    transform: rotate(10deg);}
+  50% {
+    -webkit-transform: rotate(-15deg);
+    transform: rotate(-15deg);}
+  100% {
+    -webkit-transform: rotate(10deg);
+    transform: rotate(10deg);}
+}
+.workmate .zhongling .you-shangshen{
+  animation:zhonglingzuoshangshen 800ms infinite linear;
+  -webkit-animation:zhonglingzuoshangshen 800ms infinite linear;
+}
+@keyframes zhonglingzuoyou {
+  0% {opacity: 1;}
+  50% {opacity: 0;}
+  100% {opacity: 0;}
+}
+
 .name .title{
   position: relative;
   max-width: 120px;
@@ -882,4 +1026,23 @@ li {list-style: none; }
   100% {
     -webkit-transform: rotate(0deg);opacity: 1;
     transform: rotate(0deg);opacity: 1}
+}
+.name .zhongling{
+  top: 80px;
+  left: 294px;
+  -webkit-transform-origin:116px 0px;
+  transform-origin: 116px 0px;
+  animation:zhonglingname 12s steps(1) infinite 0s;
+  -webkit-animation:zhonglingname 12s steps(1) infinite 0s;
+}
+@keyframes zhonglingname {
+  0% {
+    -webkit-transform: rotateY(0);
+    transform: rotateY(0)}
+  50% {
+    -webkit-transform: rotateY(180deg);
+    transform: rotateY(180deg)}
+  100% {
+    -webkit-transform: rotateY(0);
+    transform: rotateY(0)}
 }
