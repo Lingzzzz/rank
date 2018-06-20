@@ -453,15 +453,15 @@ function changeSeason(){
         $('.change-season-hide-menu').fadeToggle();
     })
     $('.j-change-to-spring').click(function(){
-        $("rect[date-name='tree'],polygon[date-name='tree']").attr('fill','#72e700');
-        $("path[date-name='tree-shadow']").attr('fill','#2db400');
+        $("rect[data-name='tree'],polygon[data-name='tree']").attr('fill','#72e700');
+        $("path[data-name='tree-shadow']").attr('fill','#2db400');
     })
     $('.j-change-to-summer').click(function(){
-        $("rect[date-name='tree'],polygon[date-name='tree']").attr('fill','#ff9ac4');
-        $("path[date-name='tree-shadow']").attr('fill','#ff6c9e');
+        $("rect[data-name='tree'],polygon[data-name='tree']").attr('fill','#ff9ac4');
+        $("path[data-name='tree-shadow']").attr('fill','#ff6c9e');
     })
     $('.j-change-to-autumn').click(function(){
-        $("rect[date-name='tree'],polygon[date-name='tree']").attr('fill','#fdce3d');
-        $("path[date-name='tree-shadow']").attr('fill','#f1a501');
+        $("rect[data-name='tree'],polygon[data-name='tree']").attr('fill','#fdce3d');
+        $("path[data-name='tree-shadow']").attr('fill','#f1a501');
     })
 }
