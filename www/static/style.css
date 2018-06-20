@@ -925,7 +925,70 @@ li {list-style: none; }
   50% {opacity: 0;}
   100% {opacity: 0;}
 }
+.workmate .yinghua{
+  top:256px;
+  right: 170px;
+  cursor: pointer;
+}
 
+.workmate .yinghua .hua{
+  animation:yinghuazhuan 2s infinite linear;
+  -webkit-animation:yinghuazhuan 2s infinite linear;
+  transform-origin: 12px 12px;
+  -webkit-transform-origin:12px 12px;
+}
+@keyframes yinghuazhuan {
+  0% {
+    -webkit-transform: scale(1);
+    transform: scale(1);}
+  20% {
+    -webkit-transform: scale(1.4);
+    transform: scale(1.4);}
+  40% {
+    -webkit-transform: scale(1);
+    transform: scale(1);}
+  100% {
+    -webkit-transform: scale(1);
+    transform: scale(1);}
+}
+.workmate .change-season-hide-menu{
+  display: none;
+  top:256px;
+  right: 36px;
+  min-width: 130px;
+  font-size: 12px;
+  font-family: 'zpix';
+  line-height:  18px;
+  border: 1px dashed #FF9AC4;
+  border-radius: 4px;
+  background-color: rgba(255, 228, 240, .6);
+  padding: 6px;
+}
+.workmate .change-season-hide-menu .color{
+  display: inline-block;
+  width: 30px;
+  height: 24px;
+  text-align: center;
+  padding-top: 6px;
+  margin: 6px 6px 0 0;
+  border-radius: 2px;
+  cursor: pointer;
+}
+.j-change-to-spring{
+  color: #207600;
+  border: 1px solid #2db400;
+  background-color: #72e700;
+}
+.j-change-to-summer{
+  color: #ff3080;
+  border: 1px solid #ff6c9e;
+  background-color: #ff9ac4;
+}
+.j-change-to-autumn{
+  color: #c08404;
+  border: 1px solid #f1a501;
+  background-color: #fdce3d;
+}
 .name .title{
   position: relative;
   max-width: 120px;
